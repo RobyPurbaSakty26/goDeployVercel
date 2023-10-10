@@ -47,8 +47,8 @@ type we struct {
 	w http.ResponseWriter
 }
 
-func Handler(req *http.Request) {
-	wriret := we{}
+func Handler() {
+
 	r := gin.Default()
 
 	r.GET("/ping", func(c *gin.Context) {
@@ -62,7 +62,5 @@ func Handler(req *http.Request) {
 			"message": "pong",
 		})
 	})
-
-	r.ServeHTTP(wriret.w, req)
 
 }
