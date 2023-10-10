@@ -63,4 +63,6 @@ func Handler() {
 		})
 	})
 
+	r.Run()
+
 }
