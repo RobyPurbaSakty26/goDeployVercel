@@ -44,8 +44,8 @@ import (
 // 	server.Handle(w, r)
 // }
 
-func main() {
-	r := gin.Default()
+func endpoint(w http.ResponseWriter, req *http.Request) {
+	r := gin.New()
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong",
@@ -57,5 +57,7 @@ func main() {
 			"message": "pong",
 		})
 	})
-	r.Run()
+
+	r.ServeHTTP(w, req)
+
 }
