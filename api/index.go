@@ -7,10 +7,6 @@ import (
 	// . "github.com/tbxark/g4vercel"
 )
 
-var (
-	r *gin.Engine
-)
-
 // func Handlmaer(w http.ResponseWriter, r *http.Request) {
 // 	server := New()
 
@@ -48,8 +44,8 @@ var (
 // 	server.Handle(w, r)
 // }
 
-func Handler(w http.ResponseWriter, req *http.Request) {
-	r = gin.New()
+func Handler(req *http.Request) {
+	r := gin.Default()
 
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
@@ -63,6 +59,6 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 		})
 	})
 
-	r.ServeHTTP(w, req)
+	r.ServeHTTP(http.ResponseWriter, req)
 
 }
