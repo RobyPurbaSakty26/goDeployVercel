@@ -44,7 +44,7 @@ import (
 // 	server.Handle(w, r)
 // }
 
-func Handler(req *http.Request) {
+func Handler(w http.ResponseWriter, req *http.Request) {
 	r := gin.Default()
 
 	r.GET("/ping", func(c *gin.Context) {
@@ -59,6 +59,6 @@ func Handler(req *http.Request) {
 		})
 	})
 
-	r.ServeHTTP(http.ResponseWriter, req)
+	r.ServeHTTP(w, req)
 
 }
