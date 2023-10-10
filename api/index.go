@@ -49,6 +49,7 @@ var (
 // }
 
 func Handler(w http.ResponseWriter, req *http.Request) {
+	r = gin.New()
 
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
